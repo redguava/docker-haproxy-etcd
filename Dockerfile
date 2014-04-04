@@ -10,4 +10,4 @@ ADD supervisord-haproxy.conf /etc/supervisor.d/haproxy.conf
 ADD supervisord-etcdctl.conf /etc/supervisor.d/etcdctl.conf
 ADD server.crt /etc/ssl/certs/server.crt
 
-RUN /run.sh
+CMD /run.sh
