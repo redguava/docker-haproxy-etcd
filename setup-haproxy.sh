@@ -3,8 +3,8 @@
 HAPROXY_CONFIG=/etc/haproxy/haproxy.cfg
 ETCDCTL_PEER="172.17.42.1:4001"
 
-HAPROXY_GLOBAL_MAX_CONNECTIONS=$(etcdctl --peers ${ETCDCTL_PEER} get /config/HAPROXY_GLOBAL_MAX_CONNECTIONS | grep -v "Error: 100: Key not found" || echo "50000")
-HAPROXY_DEFAULTS_MAX_CONNECTIONS=$(etcdctl --peers ${ETCDCTL_PEER} get /config/HAPROXY_DEFAULTS_MAX_CONNECTIONS | grep -v "Error: 100: Key not found" || echo "25000")
+HAPROXY_GLOBAL_MAX_CONNECTIONS=$(etcdctl --peers ${ETCDCTL_PEER} get /config/HAPROXY_GLOBAL_MAX_CONNECTIONS | grep -v "Error: 100: Key not found" || echo "2000")
+HAPROXY_DEFAULTS_MAX_CONNECTIONS=$(etcdctl --peers ${ETCDCTL_PEER} get /config/HAPROXY_DEFAULTS_MAX_CONNECTIONS | grep -v "Error: 100: Key not found" || echo "1000")
 HAPROXY_DEFAULTS_RETRIES=$(etcdctl --peers ${ETCDCTL_PEER} get /config/HAPROXY_DEFAULTS_RETRIES | grep -v "Error: 100: Key not found" || echo "3")
 HAPROXY_DEFAULTS_TIMEOUT_HTTP_REQUEST=$(etcdctl --peers ${ETCDCTL_PEER} get /config/HAPROXY_DEFAULTS_TIMEOUT_HTTP_REQUEST | grep -v "Error: 100: Key not found" || echo "10s")
 HAPROXY_DEFAULTS_TIMEOUT_CLIENT=$(etcdctl --peers ${ETCDCTL_PEER} get /config/HAPROXY_DEFAULTS_TIMEOUT_CLIENT | grep -v "Error: 100: Key not found" || echo "1m")
